@@ -1,9 +1,5 @@
 <p align="center">
-  <img src="https://github.com/rociocarratalasaez/CIBER-CAFE/blob/main/LOGOS/UJI_logo.png" width="100">
-</p>
-
-<p align="center">
-  <img src="https://github.com/rociocarratalasaez/CIBER-CAFE/blob/main/LOGOS/CIBER-CAFE_logo.png" width="100" height="100">
+  <img src="https://github.com/hpca-uji/CIBER-CAFE/blob/main/LOGOS/CIBER-CAFE_logo.jpeg" width="200" height="200">
 </p>
 
 # CIBER-CAFE: HEMM Analysis
@@ -160,8 +156,14 @@ For more information regarding this characterization, please contact:
 
 - Rocío Carratalá-Sáez (rcarrata@uji.es)
 
+
 ## Acknowledgements
 
 <p align="center">
-  <img src="https://github.com/rociocarratalasaez/CIBER-CAFE/blob/main/LOGOS/Banner_logos_funding.jpg" width="500">
+  <img src="https://github.com/hpca-uji/CIBER-CAFE/blob/main/LOGOS/Banner_logos_funding.jpg" width="500">
 </p>
+
+<p align="center">
+  <img src="https://github.com/rociocarratalasaez/CIBER-CAFE/blob/main/LOGOS/UJI_logo.png" width="100">
+</p>
+
