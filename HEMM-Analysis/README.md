@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/hpca-uji/CIBER-CAFE/blob/main/LOGOS/CIBER-CAFE_logo.jpeg" width="200" height="200">
+  <img src="https://github.com/hpca-uji/CIBER-CAFE/blob/main/LOGOS/CIBER-CAFE_logo.jpeg" width="100" height="100">
 </p>
 
 # CIBER-CAFE: HEMM Analysis
