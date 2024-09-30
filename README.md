@@ -1,11 +1,6 @@
 <p align="center">
-  <img src="https://github.com/rociocarratalasaez/CIBER-CAFE/blob/main/LOGOS/UJI_logo.png" width="200">
+  <img src="https://github.com/hpca-uji/CIBER-CAFE/blob/main/LOGOS/CIBER-CAFE_logo.jpeg" width="200" height="200">
 </p>
-
-<p align="center">
-  <img src="https://github.com/rociocarratalasaez/CIBER-CAFE/blob/main/LOGOS/CIBER-CAFE_logo.png" width="200" height="200">
-</p>
-
 
 # CIBER-CAFE
 
@@ -41,4 +36,8 @@ For more information regarding the project's contribution, please contact:
 
 <p align="center">
   <img src="https://github.com/rociocarratalasaez/CIBER-CAFE/blob/main/LOGOS/Banner_logos_funding.jpg" width="800">
+</p>
+
+<p align="center">
+  <img src="https://github.com/hpca-uji/CIBER-CAFE/blob/main/LOGOS/UJI_logo.png" width="200">
 </p>
