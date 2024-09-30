@@ -144,7 +144,8 @@ python3 -m pip install git+https://github.com/cython/cython@master
 
 ## Test the HEMM
 
-Check the README in the Test folder
+Copy in your CIBER-CAFE/HEMM-Analysis folder the [Test](https://github.com/hpca-uji/CIBER-CAFE/tree/main/HEMM-Analysis/Test) folder available in this repository.
+Afterward, follow the instructions provided in the Test/README.
 
 ## Contact information
 
