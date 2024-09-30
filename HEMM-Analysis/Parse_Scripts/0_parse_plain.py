@@ -2,8 +2,9 @@ import os
 import pandas as pd
 
 # Define the base directory where the files are stored
-base_dir = "Results"  
-output_file = "combined_results.csv"  # Name of the output file
+base_dir = "../Results_plain"  
+outdir = "../Parsed_Results/"  
+output_file = outdir+"plain_results.csv"  # Name of the output file
 
 # Define the range of X and rep values
 X_values = [1, 2, 4, 8, 16, 32, 64, 128]
@@ -45,4 +46,4 @@ mean_df.columns = ['Dimension', 'Time']
 # Save the resulting DataFrame with the mean values to a new CSV file
 mean_df.to_csv(output_file, sep=';', index=False)
 
-print(f"Mean combined CSV saved as {output_file}")
+print(f"[PLAIN] Mean combined CSV saved as {output_file}")

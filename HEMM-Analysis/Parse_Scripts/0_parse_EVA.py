@@ -3,8 +3,8 @@ import csv
 import pandas as pd
 
 # Directory where your CSV files are located
-directory = "NASP-C02-Results/"  # Replace with the correct path to your CSV files
-outdir = "0_PARSED-Results/"
+directory = "../Results/"  
+outdir = "../Parsed_Results/"
 output_file = outdir+"eva_results.csv"
 
 # Columns for output CSV
@@ -57,5 +57,5 @@ output_df.sort_values(by=["key", "DIM", "REP"], ascending=[True, True, True], in
 # Write the output to a CSV file using semicolon as the separator
 output_df.to_csv(output_file, index=False, sep=';')
 
-print(f"Results saved to {output_file}")
+print(f"[EVA] Results saved to {output_file}")
 
