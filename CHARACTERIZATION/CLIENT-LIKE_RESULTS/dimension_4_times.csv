@@ -1,0 +1,5 @@
+Library;Orin-int;Orin-float;Xavier-int;Xavier-float
+TFHE;679;679;438;438
+HElib;952;2623;1558;3637
+SEAL;307;173;595;344
+palisade;842;668;485;753
