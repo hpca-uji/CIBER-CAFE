@@ -1,9 +1,6 @@
-<p align="center">
-  <img src="https://github.com/rociocarratalasaez/CIBER-CAFE/blob/main/LOGOS/UJI_logo.png" width="100">
-</p>
 
 <p align="center">
-  <img src="https://github.com/rociocarratalasaez/CIBER-CAFE/blob/main/LOGOS/CIBER-CAFE_logo.png" width="100" height="100">
+  <img src="https://github.com/hpca-uji/CIBER-CAFE/blob/main/LOGOS/CIBER-CAFE_logo.jpeg" width="100" height="100">
 </p>
 
 # CIBER-CAFE: HEMM Analysis
@@ -47,13 +44,13 @@ cd Test
 ./run_tests.sh
 ```
 
-## How to obtain a CSV file with all the data
+## How to generate the plots in SC24-Poster
 
 ```
-python3 parse.py
+./parse_results.sh
 ```
 
-Note that the combined data will be stored in `Results/combined_results.csv`
+Note that the plots will be stored in `CIBER-CAFE/HEMM-Analysis/Test/` with the names `Time128.png` and `Time256.png`
 
 ### Contact information
 
@@ -68,5 +65,10 @@ For more information regarding this characterization, please contact:
 ### Acknowledgements
 
 <p align="center">
-  <img src="https://github.com/rociocarratalasaez/CIBER-CAFE/blob/main/LOGOS/Banner_logos_funding.jpg" width="500">
+  <img src="https://github.com/hpca-uji/CIBER-CAFE/blob/main/LOGOS/Banner_logos_funding.jpg" width="500">
 </p>
+
+<p align="center">
+  <img src="https://github.com/hpca-uji/CIBER-CAFE/blob/main/LOGOS/UJI_logo.png" width="100">
+</p>
+
