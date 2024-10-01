@@ -3,8 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Read the CSV data from a file
-csv_file_path = 'time-128_noPlain_newLabel.csv'  # Replace with the path to your CSV file
-#csv_file_path = 'time-128.csv'  # Replace with the path to your CSV file
+csv_file_path = 'times_128.csv'  # Replace with the path to your CSV file
 data = pd.read_csv(csv_file_path, sep=';')
 
 # Convert relevant columns to numeric, coercing errors to NaN, then fill NaN with 0
@@ -43,7 +42,6 @@ bottom = np.zeros(len(data))
 for column in ["Generate HE context", "Generate HE keys", "HE Encrypt", "HE Multiplication", "HE Decrypt"]:
     plt.bar(positions, data[column], bar_width, label=column, bottom=bottom, color=colors[column])
     bottom += data[column]
-#    print(data[column], " ")
 
 # Log scale for y-axis
 plt.yscale('log')
@@ -91,4 +89,4 @@ for pos, label in zip(group_positions, group_labels):
 # Show plot
 plt.tight_layout()
 plt.savefig('Time128.png')
-plt.show()
+#plt.show()

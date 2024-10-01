@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Read the CSV data from a file
-csv_file_path = 'time-256_noPlain_newLabel.csv'  # Replace with the path to your CSV file
+csv_file_path = 'times_256.csv'  # Replace with the path to your CSV file
 data = pd.read_csv(csv_file_path, sep=';')
 
 # Convert relevant columns to numeric, coercing errors to NaN, then fill NaN with 0
@@ -62,7 +62,6 @@ for dimension in unique_dimensions:
 # Set x-ticks and labels
 plt.xticks(positions, xtick_labels, rotation=90, fontsize=17)
 plt.yticks(fontsize=17)
-#plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
 plt.legend(loc='upper center', fontsize=14, ncol=5, columnspacing=2)
 
 # Add vertical lines to separate groups visually
@@ -89,4 +88,4 @@ for pos, label in zip(group_positions, group_labels):
 # Show plot
 plt.tight_layout()
 plt.savefig('Time256.png')
-plt.show()
+#plt.show()
