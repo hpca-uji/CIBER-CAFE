@@ -260,3 +260,12 @@ bash ejecTests.sh
 cat Resultados/HEMM-Optimization_*/ejecucion.log
 grep "RESULT\|ERROR" Resultados/HEMM-Optimization_*/ejecucion.log
 ```
+## Acknowledgements
+
+<p align="center">
+  <img src="https://github.com/hpca-uji/CIBER-CAFE/blob/main/LOGOS/Banner_logos_funding.jpg" width="800">
+</p>
+
+<p align="center">
+  <img src="https://github.com/hpca-uji/CIBER-CAFE/blob/main/LOGOS/UJI_logo.png" width="200">
+</p>
