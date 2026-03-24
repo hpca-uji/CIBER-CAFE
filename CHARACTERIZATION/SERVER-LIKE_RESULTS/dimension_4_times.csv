@@ -1,5 +1,5 @@
-Library;Orin-int;Orin-float;Xavier-int;Xavier-float;Nano-int;Nano-float
-TFHE;679;679;438;438;2692;2692
-HElib;952;2623;1558;3637;3401;9805
-SEAL;307;173;595;344;1270;739
-palisade;842;668;485;753;623;877
+Library;int-c00;int-c01;int-c02;int-c03;float-c00;float-c01;float-c02;float-c03
+TFHE;677;772;604;341;;;;
+HElib;892;945;821;947;2337;2464;2026;1740
+SEAL;330;362;274;335;176;196;150;180
+palisade;241;219;187;195;245;331;237;296

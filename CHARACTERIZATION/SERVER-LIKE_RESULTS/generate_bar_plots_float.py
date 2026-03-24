@@ -2,6 +2,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
+# Dimensions and configurations
+dims = ['4', '8', '16', '32']
+configs = ['c00', 'c01', 'c02', 'c03']
+
 # Color mapping for libraries
 color_map = {
     'HElib': 'orange',
@@ -10,68 +14,73 @@ color_map = {
     'SEAL': 'green'
 }
 
-dims = ['4', '8', '16', '32']
 for dimension in dims:
-
     # Read the CSV file into a Pandas DataFrame
-    df = pd.read_csv('dimension_' + str(dimension) + '_times.csv', delimiter=';')
-    
+    df = pd.read_csv(f'dimension_{dimension}_times.csv', delimiter=';')
+
     # Extract the 'Library' column for labels
     libraries = df['Library']
+    
+    # Filter out the 'TFHE' library
+    df_filtered = df[df['Library'] != 'TFHE']
+    libraries_filtered = df_filtered['Library']
+    
+    # Extract float columns
+    float_columns = [col for col in df.columns if col.startswith('float-')]
+    float_data = df_filtered[float_columns]
 
-    # Extract Orin and Xavier columns for int and float
-    float_columns = [col for col in df.columns if col.endswith('-float')]
-
-    float_data = df[float_columns]
-
-    # Remove TFHE from float data
-    if 'TFHE' in libraries.values:
-        float_data = float_data[libraries != 'TFHE']
-        libraries_filtered_float = libraries[libraries != 'TFHE']
-    else:
-        libraries_filtered_float = libraries
+    # Common X tick labels for plots
+    x_ticks = configs
+    x = np.arange(len(x_ticks))  # the label locations
 
     # Function to create bar plots
-    def create_bar_plot(data, title, filename, filtered_libraries):
+    def create_bar_plot(data, title, filename):
         width = 0.2  # the width of the bars
 
-        fig, ax = plt.subplots(figsize=(10, 6))
+        fig, ax = plt.subplots(figsize=(12, 8))
 
-        # Ensure that the data rows correspond to the filtered libraries
-        filtered_data = data.loc[libraries.isin(filtered_libraries)].reset_index(drop=True)
+        # Initialize a DataFrame for plotting to handle missing values
+        plot_data = pd.DataFrame(index=libraries_filtered, columns=x_ticks)
 
-        # Check if filtered_data has the right number of rows
-        num_bars = len(filtered_libraries)
-        if filtered_data.shape[0] != num_bars:
-            raise ValueError("Filtered data does not match the number of libraries.")
+        # Fill in the DataFrame with the data
+        for library in libraries_filtered:
+            library_data = data.loc[df_filtered['Library'] == library].values.flatten()
+            if len(library_data) == len(x_ticks):
+                plot_data.loc[library] = library_data
+            else:
+                # Debug: Print data length for each library
+                print(f"Warning: Data length for library {library} does not match x_ticks length. Filling missing values with NaN.")
+                # Fill missing values with NaN
+                if len(library_data) < len(x_ticks):
+                    library_data = np.concatenate([library_data, [np.nan] * (len(x_ticks) - len(library_data))])
+                plot_data.loc[library] = library_data
 
-        x = np.arange(len(x_ticks))  # the label locations
+        # Debug: Print out the plot_data DataFrame
+        print(f"Plot Data for dimension {dimension}x{dimension}:\n{plot_data}")
 
         # Plot each library
-        for i, library in enumerate(filtered_libraries):
-            data_for_library = filtered_data.iloc[i].values
+        for i, library in enumerate(plot_data.index):
+            row_data = plot_data.loc[library].values
+            # Remove NaNs for plotting
+            row_data = np.nan_to_num(row_data, nan=np.nan)
             color = color_map.get(library, 'gray')  # Default to gray if library is not in color_map
-            ax.bar(x + i * width, data_for_library, width, label=library, color=color)
+            ax.bar(x + i * width, row_data, width, label=library, color=color)
 
         # Add some text for labels, title and custom x-axis tick labels, etc.
-        ax.set_xlabel('System')
+        ax.set_xlabel('Configuration')
         ax.set_ylabel('Time (ms)')
         ax.set_title(title)
-        ax.set_xticks(x + width * (num_bars - 1) / 2)
+        ax.set_xticks(x + width * (len(plot_data.index) - 1) / 2)
         ax.set_xticklabels(x_ticks)
 
         # Adjusting legend position
         ax.legend(loc='upper center', ncol=4)
 
-        # Save the plot to a PDF file
+        # Save the plot to a PNG file
         plt.savefig(filename, format='png')
         plt.close()
 
-    # Common X tick labels for both plots
-    x_ticks = ['Orin', 'Xavier', 'Nano']
-    
-    # Plotting the Orin-* and Xavier-* float values and saving to PDF
-    create_bar_plot(float_data, 'Matrix multiplication, dim ' + str(dimension) + 'x' + str(dimension) + ' (CKKS, float)', str(dimension) + 'x' + str(dimension) + '_float_times_barplot.png', libraries_filtered_float.tolist())
+    # Plotting the c00-* to c03-* float values and saving to PNG
+    create_bar_plot(float_data, f'Matrix multiplication, dim {dimension}x{dimension} (CKKS, float)', f'{dimension}x{dimension}_float_times_barplot.png')
 
-    print(f"Bar plots for dimension {dimension}x{dimension} have been saved to 2 PDF files.")
-
+    print(f"Bar plot for dimension {dimension}x{dimension} has been saved to PNG file.")
