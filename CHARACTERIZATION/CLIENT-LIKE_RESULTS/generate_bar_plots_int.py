@@ -24,7 +24,7 @@ for dimension in dims:
     int_data = df[int_columns]
 
     # Common X tick labels for both plots
-    x_ticks = ['Orin', 'Xavier']
+    x_ticks = ['Orin', 'Xavier', 'Nano']
     x = np.arange(len(x_ticks))  # the label locations
 
     # Function to create bar plots

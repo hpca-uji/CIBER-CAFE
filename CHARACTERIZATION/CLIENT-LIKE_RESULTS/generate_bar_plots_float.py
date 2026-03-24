@@ -68,7 +68,7 @@ for dimension in dims:
         plt.close()
 
     # Common X tick labels for both plots
-    x_ticks = ['Orin', 'Xavier']
+    x_ticks = ['Orin', 'Xavier', 'Nano']
     
     # Plotting the Orin-* and Xavier-* float values and saving to PDF
     create_bar_plot(float_data, 'Matrix multiplication, dim ' + str(dimension) + 'x' + str(dimension) + ' (CKKS, float)', str(dimension) + 'x' + str(dimension) + '_float_times_barplot.png', libraries_filtered_float.tolist())
